@@ -1,0 +1,21 @@
+#include<algorithm>
+
+void solve( int index ,vector<int>&num, vector<int>&ans,int sum){
+    if(index==num.size()){
+        ans.push_back(sum);
+        return;
+    }
+      //element is picked
+    solve(index+1,num,ans,sum+num[index]);
+     //element is not picked
+    solve(index+1,num,ans,sum);
+}
+
+
+vector<int> subsetSum(vector<int> &num)
+{
+    vector<int>ans;
+    solve(0,num,ans,0);
+       sort(ans.begin(),ans.end()); 
+        return ans;
+}
