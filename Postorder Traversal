@@ -1,0 +1,16 @@
+void  postOrderTraversal(TreeNode *root ,vector<int> & postOrderTraversall ){
+    if(root == NULL) return ; 
+    
+    postOrderTraversal(root -> left,postOrderTraversall);
+    postOrderTraversal(root -> right,postOrderTraversall);
+    postOrderTraversall.push_back(root -> data);
+}
+ vector<int> getPostOrderTraversal(TreeNode *root)
+{
+    vector <int> postOrderTraversall;
+    if(root == NULL){
+        return postOrderTraversall;
+    }
+    postOrderTraversal(root,postOrderTraversall);
+    return postOrderTraversall;
+}
