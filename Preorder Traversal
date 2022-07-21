@@ -1,0 +1,15 @@
+void  preOrderTraversal(TreeNode *root ,vector<int> * preOrderTraversall ){
+    if(root == NULL) return ; 
+    preOrderTraversall->push_back(root -> data);
+    preOrderTraversal(root -> left,preOrderTraversall);
+    preOrderTraversal(root -> right,preOrderTraversall);
+}
+ vector<int> getPreOrderTraversal(TreeNode *root)
+{
+    vector <int> *preOrderTraversall = new vector<int>();
+    if(root == NULL){
+        return *preOrderTraversall;
+    }
+    preOrderTraversal(root,preOrderTraversall);
+    return *preOrderTraversall;
+}
