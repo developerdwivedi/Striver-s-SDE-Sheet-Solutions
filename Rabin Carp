@@ -1,0 +1,19 @@
+vector<int> stringMatch(string &str, string &pat) {
+   string s;
+   int n=str.length();
+   vector<int>ans;
+   int i=0,j=0;
+   while(j<n){
+       s+=str[j];
+       if(j-i+1<pat.length()){\
+           j++;  
+           continue;  
+       }
+       if(s==pat)
+           ans.push_back(i);
+       s.erase(0,1);
+       i++;
+       j++;
+   }
+   return ans;
+}
